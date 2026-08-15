@@ -135,8 +135,8 @@ hl.config({
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
-		active_opacity = 0.90,
-		inactive_opacity = 0.85,
+		active_opacity = 1.0,
+		inactive_opacity = 0.95,
 
 		shadow = {
 			enabled = true,
@@ -507,7 +507,7 @@ hl.window_rule({
 
 	float = true,
 	center = true,
-	size = "40% 45%",
+	size = "50% 50%",
 })
 
 hl.window_rule({
@@ -525,7 +525,7 @@ hl.window_rule({
 
 	float = true,
 	center = true,
-	size = "60% 65%",
+	size = "99% 50%",
 })
 
 hl.window_rule({
