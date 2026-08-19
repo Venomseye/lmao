@@ -1,0 +1,9 @@
+background-color={{colors.background.default.hex}}ee
+text-color={{colors.on_surface.default.hex}}ff
+border-color={{colors.primary.default.hex}}ff
+
+[urgency=low]
+border-color={{colors.outline.default.hex}}ff
+
+[urgency=high]
+border-color={{colors.error.default.hex}}ff

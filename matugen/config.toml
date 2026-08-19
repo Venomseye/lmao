@@ -1,0 +1,16 @@
+[config]
+# wpaperd is already the wallpaper daemon - matugen should only generate
+# colors here, not try to set the wallpaper itself.
+[config.wallpaper]
+set = false
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.template'
+output_path = '~/.config/kitty/colors-matugen.conf'
+# No post_hook needed - kitty has auto_reload_config on by default and will
+# pick up changes to colors-matugen.conf automatically since it's included.
+
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako-colors.template'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'

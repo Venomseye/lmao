@@ -72,6 +72,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("mako")
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("blueman-applet")
+	hl.exec_cmd("~/.config/waybar/auto-reload.sh")
 end)
 
 -------------------------------
