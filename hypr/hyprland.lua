@@ -357,7 +357,9 @@ hl.bind(mainMod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "down" }))
 
 
 -- Toggle window maximization
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
+-- Toggle window fullscreen
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 -- toggle floating
 hl.bind(secondMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 
