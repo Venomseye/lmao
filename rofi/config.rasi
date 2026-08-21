@@ -168,3 +168,4 @@ configuration {
 }
 
 @theme "$HOME/.local/share/rofi/themes/spotlight-dark.rasi"
+@theme "$HOME/.config/rofi/colors-matugen.rasi"

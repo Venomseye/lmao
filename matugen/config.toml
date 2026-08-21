@@ -14,3 +14,12 @@ output_path = '~/.config/kitty/colors-matugen.conf'
 input_path = '~/.config/matugen/templates/mako-colors.template'
 output_path = '~/.config/mako/mako-colors'
 post_hook = 'makoctl reload'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.template'
+output_path = '~/.config/rofi/colors-matugen.rasi'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar-colors.template'
+output_path = '~/.config/waybar/waybar-colors.css'
+post_hook = 'killall -SIGUSR2 waybar'

@@ -1,0 +1,22 @@
+* {
+    background-color: #18181b;
+    text-color: #ffffff;
+}
+
+window {
+    background-color: #18181b;
+    border-color: #75f1fa;
+}
+
+element selected {
+    background-color: #75f1fa;
+    text-color: #000000;
+}
+
+element-text, element-icon {
+    text-color: inherit;
+}
+
+inputbar {
+    text-color: #ffffff;
+}

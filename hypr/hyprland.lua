@@ -73,6 +73,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("blueman-applet")
 	hl.exec_cmd("~/.config/waybar/auto-reload.sh")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
 
 -------------------------------
@@ -83,6 +84,7 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "30")
+hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -92,15 +94,16 @@ hl.env("HYPRCURSOR_SIZE", "30")
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
 -- for security reasons
 
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
+hl.config({
+  ecosystem = {
+    enforce_permissions = true,
+  },
+})
 
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
+hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
+hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+hl.permission("/usr/(bin|local/bin)/satty", "screencopy", "allow")
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -357,9 +360,7 @@ hl.bind(mainMod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "down" }))
 
 
 -- Toggle window maximization
-hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
--- Toggle window fullscreen
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 -- toggle floating
 hl.bind(secondMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 
@@ -457,6 +458,22 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+-- Screenshots (requires grim, slurp, satty)
+-- Full screen -> saved + copied to clipboard
+hl.bind(
+	"PRINT",
+	hl.dsp.exec_cmd(
+		"mkdir -p ~/Pictures/Screenshots && grim - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy"
+	)
+)
+-- Region select with annotation -> saved via satty's save dialog
+hl.bind(
+	mainMod .. " + SHIFT + S",
+	hl.dsp.exec_cmd(
+		"mkdir -p ~/Pictures/Screenshots && grim -g \"$(slurp)\" - | satty --filename - --output-filename ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+	)
+)
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
