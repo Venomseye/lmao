@@ -359,10 +359,8 @@ hl.bind(mainMod .. " + CTRL + UP", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "down" }))
 
 
--- Toggle window fullscreen
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 -- Toggle window maximization
-hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 -- toggle floating
 hl.bind(secondMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 
@@ -471,7 +469,7 @@ hl.bind(
 )
 -- Region select with annotation -> saved via satty's save dialog
 hl.bind(
-	mainMod .. " + SHIFT + S",
+	mainMod .. " + CTRL + S",
 	hl.dsp.exec_cmd(
 		"mkdir -p ~/Pictures/Screenshots && grim -g \"$(slurp)\" - | satty --filename - --output-filename ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 	)

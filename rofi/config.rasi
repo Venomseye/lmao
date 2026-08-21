@@ -167,5 +167,5 @@ configuration {
   }
 }
 
-@theme "$HOME/.local/share/rofi/themes/spotlight-dark.rasi"
-@theme "$HOME/.config/rofi/colors-matugen.rasi"
+@theme "/home/lol/.local/share/rofi/themes/spotlight-dark.rasi"
+@theme "/home/lol/.config/rofi/colors-matugen.rasi"
